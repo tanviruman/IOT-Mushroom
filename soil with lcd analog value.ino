@@ -1,29 +1,25 @@
 /*
- * ESP32 Soil Moisture Sensor (Percentage Display)
- * Reads analog value from sensor and converts it to percentage
- */
+  ESP32 Soil Moisture Sensor
+  Reads analog value and converts to percentage
+*/
 
-#define SOIL_PIN 36  // ADC pin connected to soil moisture sensor (AOUT)
-#define DRY_VALUE 3500  // Change this based on your dry soil reading
-#define WET_VALUE 1200  // Change this based on your wet soil reading
+int moisture, sensor_analog;
+const int sensor_pin = 36;  /* Soil moisture sensor analog output connected to GPIO36 (VP) */
 
-void setup() {
-  Serial.begin(9600);
-  analogSetAttenuation(ADC_11db); // Allows full 0–3.3V range for analog read
+void setup(void) {
+  Serial.begin(115200);  /* Set the baudrate to 115200 */
+  analogSetAttenuation(ADC_11db);  /* Allows full 0–3.3V input range */
 }
 
-void loop() {
-  int sensorValue = analogRead(SOIL_PIN); // Read sensor value
-
-  // Map the sensor value to percentage (100% = wet, 0% = dry)
-  int moisturePercent = map(sensorValue, DRY_VALUE, WET_VALUE, 0, 100);
-
-  // Constrain to 0–100 range
-  moisturePercent = constrain(moisturePercent, 0, 100);
-
-  Serial.print("Soil Moisture: ");
-  Serial.print(moisturePercent);
+void loop(void) {
+  sensor_analog = analogRead(sensor_pin);  /* Read analog value (0–4095) */
+  
+  // Convert to moisture percentage (100% = wet, 0% = dry)
+  moisture = 100 - ((sensor_analog / 4095.0) * 100);
+  
+  Serial.print("Moisture = ");
+  Serial.print(moisture);
   Serial.println("%");
-
-  delay(1000);
+  
+  delay(1000);  /* Wait for 1 second */
 }
