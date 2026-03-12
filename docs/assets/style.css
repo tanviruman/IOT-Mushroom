@@ -414,7 +414,7 @@ figcaption {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .member-card {
@@ -444,7 +444,7 @@ figcaption {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--accent);
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.25rem;
   letter-spacing: 0;
 }
 
