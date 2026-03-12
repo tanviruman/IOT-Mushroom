@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — IoT Mushroom</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ───────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a class="nav-brand" href="index.html">🍄 IoT Mushroom</a>
+      <ul class="nav-links">
+        <li><a href="docs.html" class="active">Docs</a></li>
+        <li><a href="demo.html">Demo</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sdg.html">SDG</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section style="padding-top:4rem; padding-bottom:1rem;">
+        <div class="section-label">Technical Reference</div>
+        <h1>Documentation</h1>
+        <p>Complete technical documentation for the IoT Mushroom Environment Monitoring System.</p>
+      </section>
+
+      <hr />
+
+      <!-- System Features -->
+      <div class="docs-section">
+        <h2>⚙️ System Features</h2>
+        <ul>
+          <li>🌡 Real-time temperature monitoring</li>
+          <li>💧 Humidity monitoring</li>
+          <li>🌱 Soil moisture monitoring</li>
+          <li>🌫 Gas level monitoring</li>
+          <li>📟 20×4 LCD display output</li>
+          <li>📱 Remote monitoring with Blynk IoT</li>
+          <li>🌀 Remote fan control through mobile application</li>
+        </ul>
+      </div>
+
+      <!-- System Architecture -->
+      <div class="docs-section">
+        <h2>💻 System Architecture</h2>
+        <p>
+          The system is built using an <strong style="color:var(--text)">ESP32 microcontroller</strong>
+          which acts as the central controller. Multiple environmental sensors collect data and send it
+          to the ESP32. The microcontroller processes the data, displays it on an LCD screen, and
+          uploads the information to the Blynk IoT cloud platform for remote monitoring.
+        </p>
+      </div>
+
+      <!-- Libraries Used -->
+      <div class="docs-section">
+        <h2>📚 Libraries Used</h2>
+        <ul>
+          <li><strong style="color:var(--text)">WiFi.h</strong> — Handles WiFi connection for the ESP32</li>
+          <li><strong style="color:var(--text)">BlynkSimpleEsp32.h</strong> — Enables communication with the Blynk IoT platform</li>
+          <li><strong style="color:var(--text)">Wire.h</strong> — Enables I2C communication</li>
+          <li><strong style="color:var(--text)">LiquidCrystal_I2C.h</strong> — Controls the 20×4 LCD display</li>
+          <li><strong style="color:var(--text)">DHT.h</strong> — Reads temperature and humidity data from the DHT22 sensor</li>
+        </ul>
+      </div>
+
+      <!-- Blynk Configuration -->
+      <div class="docs-section">
+        <h2>🔑 Blynk Configuration</h2>
+        <p>The system connects to a Blynk IoT project using the following identifiers:</p>
+        <ul>
+          <li><strong style="color:var(--text)">Template ID</strong> — Identifies the Blynk project template</li>
+          <li><strong style="color:var(--text)">Template Name</strong> — Name of the IoT dashboard</li>
+          <li><strong style="color:var(--text)">Auth Token</strong> — Authentication key linking the device to Blynk cloud</li>
+        </ul>
+        <p>These parameters must be defined before including the Blynk library in the code.</p>
+      </div>
+
+      <!-- WiFi Configuration -->
+      <div class="docs-section">
+        <h2>🌐 WiFi Configuration</h2>
+        <p>The ESP32 connects to the internet using a WiFi network. The network credentials are defined using:</p>
+        <ul>
+          <li>WiFi SSID — Network name</li>
+          <li>WiFi Password — Network password</li>
+        </ul>
+        <p>Once connected, the device communicates with the Blynk cloud server and starts sending environmental data.</p>
+      </div>
+
+      <!-- LCD Display -->
+      <div class="docs-section">
+        <h2>🖥 LCD Display</h2>
+        <p>
+          A 20×4 I2C LCD display is used to show real-time environmental data, allowing users to
+          monitor the system locally without opening the mobile application.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Row</th><th>Information Displayed</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Row 1</td><td>Humidity value</td></tr>
+              <tr><td>Row 2</td><td>Temperature value</td></tr>
+              <tr><td>Row 3</td><td>Soil moisture percentage and water status</td></tr>
+              <tr><td>Row 4</td><td>Gas sensor reading</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Temperature & Humidity -->
+      <div class="docs-section">
+        <h2>🌡 Temperature &amp; Humidity Monitoring</h2>
+        <p>
+          A DHT22 sensor measures environmental temperature and humidity. These values are
+          continuously read by the ESP32 and updated every second.
+        </p>
+        <ul>
+          <li>Temperature is measured in degrees Celsius</li>
+          <li>Humidity is measured in percentage</li>
+        </ul>
+      </div>
+
+      <!-- Soil Moisture -->
+      <div class="docs-section">
+        <h2>🌱 Soil Moisture Monitoring</h2>
+        <p>
+          The soil moisture sensor provides an analog value between 0 and 4095. The code converts
+          this raw value into a percentage to make the data easier to interpret.
+        </p>
+        <p>
+          A higher percentage indicates wetter soil while a lower value indicates dry soil.
+        </p>
+      </div>
+
+      <!-- Gas Level -->
+      <div class="docs-section">
+        <h2>🌫 Gas Level Monitoring</h2>
+        <p>
+          The MQ-7 gas sensor detects gas levels in the environment. If the sensor reading exceeds
+          the predefined threshold value, the system marks the condition as gas detected.
+        </p>
+      </div>
+
+      <!-- Blynk Dashboard Integration -->
+      <div class="docs-section">
+        <h2>📱 Blynk Dashboard Integration</h2>
+        <p>
+          The Blynk IoT platform allows users to monitor environmental conditions remotely.
+          The ESP32 sends sensor data to the Blynk cloud using virtual pins.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Virtual Pin</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>V1</td><td>Fan control switch</td></tr>
+              <tr><td>V5</td><td>Humidity value</td></tr>
+              <tr><td>V6</td><td>Temperature value</td></tr>
+              <tr><td>V7</td><td>Soil moisture percentage</td></tr>
+              <tr><td>V8</td><td>Gas sensor raw value</td></tr>
+              <tr><td>V9</td><td>Water detection indicator</td></tr>
+              <tr><td>V10</td><td>Gas detection indicator</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Fan Control -->
+      <div class="docs-section">
+        <h2>🌀 Fan Control System</h2>
+        <p>
+          The system includes a relay module connected to a fan. The relay allows the fan to be
+          controlled remotely from the Blynk mobile application.
+        </p>
+        <p>
+          When the user toggles the fan switch in the app, the command is sent to the ESP32, which
+          activates or deactivates the relay accordingly.
+        </p>
+      </div>
+
+      <!-- Automated Monitoring Loop -->
+      <div class="docs-section">
+        <h2>⏱ Automated Monitoring Loop</h2>
+        <p>
+          The program uses a timer system to perform sensor readings at regular intervals.
+          Every <strong style="color:var(--text)">1 second</strong>, the system performs the following tasks:
+        </p>
+        <ul>
+          <li>Read sensor data</li>
+          <li>Update the LCD display</li>
+          <li>Send data to the Blynk dashboard</li>
+        </ul>
+        <p>This ensures continuous monitoring of the mushroom cultivation environment.</p>
+      </div>
+
+      <!-- System Initialization -->
+      <div class="docs-section">
+        <h2>⚙ System Initialization</h2>
+        <p>When the device starts, the setup function performs several initialization steps:</p>
+        <ul>
+          <li>Start serial communication</li>
+          <li>Initialize the LCD display</li>
+          <li>Initialize sensors</li>
+          <li>Configure input and output pins</li>
+          <li>Connect to WiFi</li>
+          <li>Connect to the Blynk cloud server</li>
+          <li>Start the periodic monitoring timer</li>
+        </ul>
+      </div>
+
+      <!-- Main Program Loop -->
+      <div class="docs-section">
+        <h2>🔄 Main Program Loop</h2>
+        <p>The main loop of the program runs continuously and performs two key tasks:</p>
+        <ul>
+          <li><strong style="color:var(--text)">Blynk.run()</strong> — Maintains connection with the Blynk cloud server</li>
+          <li><strong style="color:var(--text)">timer.run()</strong> — Executes scheduled tasks such as sensor reading</li>
+        </ul>
+        <p>
+          This design ensures that the system continuously monitors environmental conditions
+          while remaining connected to the IoT dashboard.
+        </p>
+      </div>
+
+      <!-- Future Improvements -->
+      <div class="docs-section">
+        <h2>🚀 Future Improvements</h2>
+        <ul>
+          <li>Machine learning integration for predicting mushroom growth</li>
+          <li>Automated humidity and climate control</li>
+          <li>Smart alert notifications</li>
+          <li>Environmental data logging and analytics</li>
+          <li>Advanced IoT dashboard visualization</li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="docs-section">
+        <h2>⭐ Support</h2>
+        <p>If you find this project useful:</p>
+        <ul>
+          <li>⭐ <a href="https://github.com/tanviruman/IOT-Mushroom" target="_blank" rel="noopener">Star the repository</a></li>
+          <li>🍴 <a href="https://github.com/tanviruman/IOT-Mushroom/fork" target="_blank" rel="noopener">Fork the project</a></li>
+          <li>🤝 Contribute improvements via pull requests</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <p>🍄 IoT Mushroom Monitoring System &mdash; Team Mycelium &mdash;
+        <a href="https://github.com/tanviruman/IOT-Mushroom" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

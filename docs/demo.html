@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo — IoT Mushroom</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ───────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a class="nav-brand" href="index.html">🍄 IoT Mushroom</a>
+      <ul class="nav-links">
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="demo.html" class="active">Demo</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sdg.html">SDG</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section style="padding-top:4rem; padding-bottom:1rem;">
+        <div class="section-label">Gallery</div>
+        <h1>Demo Photos</h1>
+        <p>
+          Hardware setup, LCD display output, and the Blynk mobile dashboard.
+          Replace the placeholder images with your actual project photos.
+        </p>
+      </section>
+
+      <!-- Gallery grid -->
+      <section style="padding-top:1rem;">
+        <div class="gallery">
+
+          <figure>
+            <img
+              src="assets/images/demo-1.jpg"
+              alt="Hardware setup"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="img-placeholder" style="display:none;">
+              <span class="placeholder-icon">📷</span>
+              <span>demo-1.jpg</span>
+            </div>
+            <figcaption>Hardware Setup — ESP32 &amp; Sensors</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="assets/images/demo-2.jpg"
+              alt="System overview"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="img-placeholder" style="display:none;">
+              <span class="placeholder-icon">📷</span>
+              <span>demo-2.jpg</span>
+            </div>
+            <figcaption>Full System Overview</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="assets/images/lcd.jpg"
+              alt="LCD display"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="img-placeholder" style="display:none;">
+              <span class="placeholder-icon">📟</span>
+              <span>lcd.jpg</span>
+            </div>
+            <figcaption>20×4 LCD Real-Time Display</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="assets/images/blynk-dashboard.jpg"
+              alt="Blynk dashboard"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="img-placeholder" style="display:none;">
+              <span class="placeholder-icon">📱</span>
+              <span>blynk-dashboard.jpg</span>
+            </div>
+            <figcaption>Blynk Mobile Dashboard</figcaption>
+          </figure>
+
+        </div>
+
+        <p style="margin-top:2rem; font-size:0.85rem; text-align:center;">
+          ℹ️ To add photos, place your images in <code style="color:var(--accent)">docs/assets/images/</code>
+          using the filenames shown in each caption.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <p>🍄 IoT Mushroom Monitoring System &mdash; Team Mycelium &mdash;
+        <a href="https://github.com/tanviruman/IOT-Mushroom" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
